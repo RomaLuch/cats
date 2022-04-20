@@ -1,0 +1,225 @@
+Index: kotiki/.gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/kotiki/.gitignore b/kotiki/.gitignore
+--- a/kotiki/.gitignore	(revision 3f2d0d6d8cb4f5e73524bfcb9557f001bd8af2da)
++++ b/kotiki/.gitignore	(revision b5d141965e7ce10129dfd31de2ed366bf16c29a7)
+@@ -1,2 +1,4 @@
+ /target
+-/.idea
++/dao/target
++/service/target
++/.idea
+\ No newline at end of file
+Index: kotiki/dao/pom.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/kotiki/dao/pom.xml b/kotiki/dao/pom.xml
+--- a/kotiki/dao/pom.xml	(revision 3f2d0d6d8cb4f5e73524bfcb9557f001bd8af2da)
++++ b/kotiki/dao/pom.xml	(revision b5d141965e7ce10129dfd31de2ed366bf16c29a7)
+@@ -4,7 +4,7 @@
+          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+     <modelVersion>4.0.0</modelVersion>
+ 
+-    <groupId>ru.itmo</groupId>
++    <groupId>ru.itmo.kotiki</groupId>
+     <artifactId>dao</artifactId>
+     <version>1.0-SNAPSHOT</version>
+ 
+Index: kotiki/dao/src/main/java/ru/itmo/kotiki/dao/CatDaoImpl.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/kotiki/dao/src/main/java/ru/itmo/kotiki/dao/CatDaoImpl.java b/kotiki/dao/src/main/java/ru/itmo/kotiki/dao/CatDaoImpl.java
+--- a/kotiki/dao/src/main/java/ru/itmo/kotiki/dao/CatDaoImpl.java	(revision 3f2d0d6d8cb4f5e73524bfcb9557f001bd8af2da)
++++ b/kotiki/dao/src/main/java/ru/itmo/kotiki/dao/CatDaoImpl.java	(revision b5d141965e7ce10129dfd31de2ed366bf16c29a7)
+@@ -11,7 +11,7 @@
+ import javax.persistence.criteria.Root;
+ import java.util.List;
+ 
+-public class CatDaoImpl implements CatDao{
++public class CatDaoImpl implements CatDao {
+     @Override
+     public Cat findById(int id) {
+         Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
+Index: kotiki/dao/src/main/java/ru/itmo/kotiki/dao/entity/Color.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/kotiki/dao/src/main/java/ru/itmo/kotiki/dao/entity/Color.java b/kotiki/dao/src/main/java/ru/itmo/kotiki/dao/entity/Color.java
+--- a/kotiki/dao/src/main/java/ru/itmo/kotiki/dao/entity/Color.java	(revision 3f2d0d6d8cb4f5e73524bfcb9557f001bd8af2da)
++++ b/kotiki/dao/src/main/java/ru/itmo/kotiki/dao/entity/Color.java	(revision b5d141965e7ce10129dfd31de2ed366bf16c29a7)
+@@ -1,8 +1,8 @@
+ package ru.itmo.kotiki.dao.entity;
+ 
+ public enum Color {
+-    Grey,
+-    Black,
+-    White,
+-    Multicolor
++    GREY,
++    BLACK,
++    WHITE,
++    MULTICOLOR
+ }
+Index: kotiki/pom.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/kotiki/pom.xml b/kotiki/pom.xml
+--- a/kotiki/pom.xml	(revision 3f2d0d6d8cb4f5e73524bfcb9557f001bd8af2da)
++++ b/kotiki/pom.xml	(revision b5d141965e7ce10129dfd31de2ed366bf16c29a7)
+@@ -4,7 +4,7 @@
+          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+     <modelVersion>4.0.0</modelVersion>
+ 
+-    <groupId>ru.itmo</groupId>
++    <groupId>ru.itmo.kotiki</groupId>
+     <artifactId>kotiki</artifactId>
+     <version>1.0-SNAPSHOT</version>
+ 
+@@ -48,7 +48,7 @@
+             <scope>test</scope>
+         </dependency>
+         <dependency>
+-            <groupId>ru.itmo</groupId>
++            <groupId>ru.itmo.kotiki</groupId>
+             <artifactId>service</artifactId>
+             <version>1.0-SNAPSHOT</version>
+             <scope>compile</scope>
+Index: kotiki/service/pom.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/kotiki/service/pom.xml b/kotiki/service/pom.xml
+--- a/kotiki/service/pom.xml	(revision 3f2d0d6d8cb4f5e73524bfcb9557f001bd8af2da)
++++ b/kotiki/service/pom.xml	(revision b5d141965e7ce10129dfd31de2ed366bf16c29a7)
+@@ -4,7 +4,7 @@
+          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+     <modelVersion>4.0.0</modelVersion>
+ 
+-    <groupId>ru.itmo</groupId>
++    <groupId>ru.itmo.kotiki</groupId>
+     <artifactId>service</artifactId>
+     <version>1.0-SNAPSHOT</version>
+ 
+@@ -15,7 +15,7 @@
+ 
+     <dependencies>
+         <dependency>
+-            <groupId>ru.itmo</groupId>
++            <groupId>ru.itmo.kotiki</groupId>
+             <artifactId>dao</artifactId>
+             <version>1.0-SNAPSHOT</version>
+         </dependency>
+Index: kotiki/src/main/java/Program.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/kotiki/src/main/java/Program.java b/kotiki/src/main/java/Program.java
+--- a/kotiki/src/main/java/Program.java	(revision 3f2d0d6d8cb4f5e73524bfcb9557f001bd8af2da)
++++ b/kotiki/src/main/java/Program.java	(revision b5d141965e7ce10129dfd31de2ed366bf16c29a7)
+@@ -18,19 +18,19 @@
+         herald.setName("herald");
+         herald.setBirthday(Date.valueOf("2020-01-01"));
+         herald.setBreed("scotland");
+-        herald.setColor(Color.Grey);
++        herald.setColor(Color.GREY);
+ 
+         Cat frederic = new Cat();
+         frederic.setName("frederic");
+         frederic.setBirthday(Date.valueOf("2019-08-08"));
+         frederic.setBreed("england");
+-        frederic.setColor(Color.Black);
++        frederic.setColor(Color.BLACK);
+ 
+         Cat ramses = new Cat();
+         ramses.setName("ramses");
+         ramses.setBirthday(Date.valueOf("2021-05-05"));
+         ramses.setBreed("african");
+-        ramses.setColor(Color.White);
++        ramses.setColor(Color.WHITE);
+ 
+         managerService.saveCat(herald);
+         managerService.saveCat(frederic);
+Index: kotiki/src/test/java/ProgramTest.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/kotiki/src/test/java/ProgramTest.java b/kotiki/src/test/java/ProgramTest.java
+--- a/kotiki/src/test/java/ProgramTest.java	(revision 3f2d0d6d8cb4f5e73524bfcb9557f001bd8af2da)
++++ b/kotiki/src/test/java/ProgramTest.java	(revision b5d141965e7ce10129dfd31de2ed366bf16c29a7)
+@@ -29,7 +29,7 @@
+         herald.setName("herald");
+         herald.setBirthday(Date.valueOf("2020-01-01"));
+         herald.setBreed("scotland");
+-        herald.setColor(Color.Grey);
++        herald.setColor(Color.GREY);
+ 
+         managerService.saveCat(herald);
+ 
+@@ -55,13 +55,13 @@
+         herald.setName("herald");
+         herald.setBirthday(Date.valueOf("2020-01-01"));
+         herald.setBreed("scotland");
+-        herald.setColor(Color.Grey);
++        herald.setColor(Color.GREY);
+ 
+         Cat frederic = new Cat();
+         frederic.setName("frederic");
+         frederic.setBirthday(Date.valueOf("2019-08-08"));
+         frederic.setBreed("england");
+-        frederic.setColor(Color.Black);
++        frederic.setColor(Color.BLACK);
+ 
+         managerService.saveCat(herald);
+         managerService.saveCat(frederic);
+@@ -96,13 +96,13 @@
+         herald.setName("herald");
+         herald.setBirthday(Date.valueOf("2020-01-01"));
+         herald.setBreed("scotland");
+-        herald.setColor(Color.Grey);
++        herald.setColor(Color.GREY);
+ 
+         Cat frederic = new Cat();
+         frederic.setName("frederic");
+         frederic.setBirthday(Date.valueOf("2019-08-08"));
+         frederic.setBreed("england");
+-        frederic.setColor(Color.Black);
++        frederic.setColor(Color.BLACK);
+ 
+         managerService.saveCat(herald);
+         managerService.saveCat(frederic);
+@@ -119,19 +119,19 @@
+         herald.setName("herald");
+         herald.setBirthday(Date.valueOf("2020-01-01"));
+         herald.setBreed("scotland");
+-        herald.setColor(Color.Grey);
++        herald.setColor(Color.GREY);
+ 
+         Cat frederic = new Cat();
+         frederic.setName("frederic");
+         frederic.setBirthday(Date.valueOf("2019-08-08"));
+         frederic.setBreed("england");
+-        frederic.setColor(Color.Black);
++        frederic.setColor(Color.BLACK);
+ 
+         Cat ramses = new Cat();
+         ramses.setName("ramses");
+         ramses.setBirthday(Date.valueOf("2021-05-05"));
+         ramses.setBreed("african");
+-        ramses.setColor(Color.White);
++        ramses.setColor(Color.WHITE);
+ 
+         managerService.saveCat(herald);
+         managerService.saveCat(frederic);
